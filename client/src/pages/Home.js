@@ -5,11 +5,10 @@ import Login from './Login'
 const Home = () => {
   return (
     <div className='home'>
-
+      <PhoneImg />
       <Login />
     </div>
   )
-        // <PhoneImg />
 };
 
 export default Home;

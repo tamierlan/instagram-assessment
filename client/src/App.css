@@ -20,6 +20,8 @@ code {
 
 }
 
+
+
 .phone-img {
   background-image: url('https://www.instagram.com/static/images/homepage/home-phones@2x.png/9364675fb26a.png');
   background-repeat: no-repeat;
@@ -29,16 +31,96 @@ code {
   width: 460px;
   border: 1px solid black;
 }
-
 @media screen and (max-width: 970px) {
   .phone-img {
     display: none;
   }
 }
-
 .phone-img img {
   padding-left: 135px;
   padding-top: 105px;
   padding-bottom: 85px;
   height: 478px;
 }
+
+
+
+.login-wrapper {
+  width: 390px;
+  margin: 45px;
+}
+.login {
+  border: 1px solid silver;
+  width: 100%;
+  margin-bottom: 11px;
+  padding: 45px;
+  box-sizing: border-box;
+}
+.login h1 {
+  font-family: 'Merienda One', cursive;
+  font-size: 40px;
+  margin-top: -18px;
+  margin-bottom: 40px;
+}
+.login input {
+  padding: 12px;
+  border-radius: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border: 1px solid silver;
+}
+.login button {
+  background: #99dfff;
+  border-radius: 4px;
+  border: 0;
+  width: 100%;
+  margin-top: 15px;
+}
+.login button h3 {
+  margin: 6px;
+  color: white;
+}
+
+.or {
+  display: flex;
+  /* color: grey; */
+}
+.or div {
+  /* display: flex; */
+  align-self: center;
+
+  width: 50px;
+  height: 1px;
+  background: silver;
+}
+.or h4 {
+  margin: 17px;
+  color: grey;
+}
+
+.or div {
+  width: 100%;
+}
+
+/* .login {
+  width: 390px;
+  margin: 30px;
+}
+.login-wrap {
+  border: 1px solid silver;
+}
+.login input {
+  display: block;
+  width: 100%;
+}
+
+
+.or-lines {
+  display: flex;
+}
+.or-lines div {
+  width: 50px;
+  height: 2px;
+  background: grey;
+} */
