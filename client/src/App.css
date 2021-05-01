@@ -47,13 +47,14 @@ code {
 
 .login-wrapper {
   width: 390px;
-  margin: 45px;
+  margin: 40px;
 }
 .login {
   border: 1px solid silver;
   width: 100%;
   margin-bottom: 11px;
   padding: 45px;
+  padding-bottom: 8px;
   box-sizing: border-box;
 }
 .login h1 {
@@ -67,11 +68,12 @@ code {
   border-radius: 3px;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 6px;
+  margin-top: 8px;
   border: 1px solid silver;
 }
 .login button {
-  background: #99dfff;
+  /* background: #99dfff; */
+  background-color: rgba(0,149,246,.3);
   border-radius: 4px;
   border: 0;
   width: 100%;
@@ -103,24 +105,47 @@ code {
   width: 100%;
 }
 
-/* .login {
-  width: 390px;
-  margin: 30px;
-}
-.login-wrap {
-  border: 1px solid silver;
-}
-.login input {
-  display: block;
-  width: 100%;
-}
-
-
-.or-lines {
+.log-facebook {
   display: flex;
+
+  margin-left: 53px;
 }
-.or-lines div {
-  width: 50px;
-  height: 2px;
-  background: grey;
-} */
+.log-facebook img {
+  margin-top: 14px;
+  margin-right: 10px;
+}
+.log-facebook h4 {
+  margin-top: 14px;
+  margin-bottom: 4px;
+  color: #003366;
+}
+.login-wrapper p {
+  color: #003366;
+}
+.dont {
+  padding: 24px;
+}
+.dont strong {
+  color: #1a8cff;
+}
+
+.get-the-app p {
+  color: black;
+  margin-top: 25px;
+}
+.get-the-app img {
+  height: 45px;
+  margin: 4px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+}
+
+footer a {
+  font-size: 14px;
+  color: grey;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+footer .gap {
+  height: 20px;
+}

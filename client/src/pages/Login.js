@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginWithFacebook from '../components/LoginWithFacebook';
 import DontHaveAccount from '../components/DontHaveAccount';
+import GetTheApp from '../components/GetTheApp';
 
 const Login = () => {
 
@@ -22,6 +23,8 @@ const Login = () => {
 
       <DontHaveAccount />
 
+      <GetTheApp />
+  
 
     </div>
   )
