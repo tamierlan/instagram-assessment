@@ -17,9 +17,15 @@ code {
 }
 
 .home {
-
+  margin-top: 40px;
+  margin-bottom: 25px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.inner-home {
+  display: flex;
+}
 
 
 .phone-img {
@@ -29,8 +35,8 @@ code {
   display: block;
 
   width: 460px;
-  border: 1px solid black;
 }
+
 @media screen and (max-width: 970px) {
   .phone-img {
     display: none;
@@ -48,6 +54,8 @@ code {
 .login-wrapper {
   width: 390px;
   margin: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .login {
   border: 1px solid silver;
@@ -67,9 +75,13 @@ code {
   padding: 12px;
   border-radius: 3px;
   width: 100%;
+  outline: 0;
   box-sizing: border-box;
   margin-top: 8px;
   border: 1px solid silver;
+}
+.login input:focus {
+  border: 1px solid grey;
 }
 .login button {
   /* background: #99dfff; */
@@ -112,14 +124,17 @@ code {
 }
 .log-facebook img {
   margin-top: 14px;
+  cursor: pointer;
   margin-right: 10px;
 }
 .log-facebook h4 {
   margin-top: 14px;
+  cursor: pointer;
   margin-bottom: 4px;
   color: #003366;
 }
 .login-wrapper p {
+  cursor: pointer;
   color: #003366;
 }
 .dont {
@@ -127,6 +142,7 @@ code {
 }
 .dont strong {
   color: #1a8cff;
+  cursor: pointer;
 }
 
 .get-the-app p {
@@ -134,12 +150,18 @@ code {
   margin-top: 25px;
 }
 .get-the-app img {
+  cursor: pointer;
   height: 45px;
   margin: 4px;
   margin-top: 6px;
   margin-bottom: 15px;
 }
 
+footer {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 80px;
+}
 footer a {
   font-size: 14px;
   color: grey;

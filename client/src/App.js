@@ -8,6 +8,7 @@ import Delete  from './pages/Delete';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Error from './pages/Error';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/Logout' component={Logout} />
           <Route component={Error} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

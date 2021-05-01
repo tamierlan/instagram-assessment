@@ -12,7 +12,18 @@ const Footer = () => {
     'Top',
     'Accounts',
     'Hashtags',
-    'Locations'
+    'Locations',
+    'Beauty',
+    'Dance',
+    'Performance',
+    'Fitness',
+    'Food',
+    'Drink',
+    'Home ',
+    'Garden',
+    'Music',
+    'Visual',
+    'Arts'
   ];
 
   return (
