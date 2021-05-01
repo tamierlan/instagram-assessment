@@ -28,13 +28,13 @@ const Footer = () => {
 
   return (
     <footer>
-    {footerData.map(data => {
+    {footerData.map((data, index) => {
       return (
-        <a>  {data}  </a>
+        <a href='#' key={index}>  {data}  </a>
       )
     })}
     <div className='gap' />
-    <a>English @2021 Instagram from Facebook</a>
+    <a href='#'>English @2021 Instagram from Facebook</a>
     </footer>
   )
 

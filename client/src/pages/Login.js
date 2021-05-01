@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import LoginWithFacebook from '../components/LoginWithFacebook';
 import DontHaveAccount from '../components/DontHaveAccount';
 import GetTheApp from '../components/GetTheApp';
@@ -11,8 +10,8 @@ const Login = () => {
 
       <div className='login'>
         <h1>Instagram</h1>
-        <input value='' onChange='' type='text' placeholder='Phone number, username, or email' /><br />
-        <input value='' onChange='' type='text' placeholder='Password' /><br />
+        <input  type='text' placeholder='Phone number, username, or email' /><br />
+        <input  type='text' placeholder='Password' /><br />
         <button><h3>Log In</h3></button>
         <LoginWithFacebook />
       </div>
