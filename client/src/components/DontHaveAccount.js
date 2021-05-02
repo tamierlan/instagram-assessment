@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DontHaveAccount = () => {
+const DontHaveAccount = (props) => {
+  const { question, linkText, link } = props;
+
   return (
     <div className='login dont'>
-      <a>Don't have an account?</a> <strong><Link to='/signup'> Sign up</Link></strong>
+      <a>{question}</a> <strong><Link to='/signup' to={`/${link}`}> {linkText}</Link></strong>
     </div>
   )
 };
