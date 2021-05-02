@@ -12,7 +12,7 @@ const Signup = () => {
 
   const setPassword = (event) => {
     setPass(event.target.value)
-    if (pass.length > 4) {
+    if (event.target.value.length > 5) {
       setButt('#0099ff')
     } else {
       setButt('rgba(0,149,246,.3)')

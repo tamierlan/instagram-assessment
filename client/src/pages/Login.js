@@ -11,7 +11,7 @@ const Login = () => {
 
   const setPassword = (event) => {
     setPass(event.target.value);
-    if (pass.length > 4) {
+    if (event.target.value.length > 5) {
       setButt('#0099ff')
     } else {
       setButt('rgba(0,149,246,.3)')
@@ -20,10 +20,12 @@ const Login = () => {
 
   const loginSubmit = () => {
     if (login.length < 6) {
+      console.log('in')
       return
     } else if (pass.length < 6) {
       return
     }
+    console.log('out')
   }
 
   return (
@@ -47,5 +49,3 @@ const Login = () => {
   )
 };
 export default Login;
-
-// <input  type='text' placeholder='Password' /><br />
