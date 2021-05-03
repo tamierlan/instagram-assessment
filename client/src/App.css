@@ -88,9 +88,10 @@ a {
 .login input:focus {
   border: 1px solid grey;
 }
+.red-valid {
+  border: 1px solid red;
+}
 .login button {
-  /* background: #99dfff; */
-  /* background-color: rgba(0,149,246,.3); */
   border-radius: 4px;
   border: 0;
   width: 100%;

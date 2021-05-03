@@ -12,13 +12,14 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-const mongoURI = 'mongodb+srv://user:tamerlan12@cluster0-buc3s.mongodb.net/test?retryWrites=true&w=majority'
+// const mongoURI = 'mongodb+srv://user:tamerlan12@cluster0-buc3s.mongodb.net/test?retryWrites=true&w=majority'
+const mongoURI = 'mongodb+srv://tamerlan12:tamerlan12@cluster0.o4f3e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 mongoose.connect(mongoURI, { useNewUrlParser: true })
 .then(() => console.log('\u{1F680} MongoDB connected \u{1F680}'))
 .catch(err => console.log(err))
 
-app.use('/users', Users)
+app.use('/', Users)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
