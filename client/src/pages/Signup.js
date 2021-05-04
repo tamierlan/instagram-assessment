@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DontHaveAccount from '../components/DontHaveAccount';
 import GetTheApp from '../components/GetTheApp';
 import Form from 'react-bootstrap/Form';
@@ -24,6 +24,13 @@ const Signup = () => {
     } else {
       setButt('rgba(0,149,246,.3)')
     }
+  };
+
+  const authorizing = () => {
+    const token = localStorage.getItem('usertoken');
+    if (token) {
+      console.log('token', token)
+    }
   }
 
 
@@ -43,8 +50,8 @@ const Signup = () => {
       axios.post('http://localhost:5000/signup', {email: email, fullname: full, username: user, password: pass})
       .then(res => {
         if (res.data) {
-          localStorage.setItem('usertoken', res.data)
-          Redirect.to='/useraccount'
+          localStorage.setItem('usertoken', res.data);
+          authorizing()
         }
 
         // if (res === 'User already exist') {
@@ -55,6 +62,10 @@ const Signup = () => {
       })
     }
   }
+
+  useEffect(() => {
+    authorizing()
+  }, [])
 
   return (
     <div className='signup login-wrapper'>
