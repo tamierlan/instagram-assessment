@@ -44,6 +44,7 @@ const Signup = () => {
       .then(res => {
         if (res.data) {
           localStorage.setItem('usertoken', res.data)
+          Redirect.to='/useraccount'
         }
 
         // if (res === 'User already exist') {
