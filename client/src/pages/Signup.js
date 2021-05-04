@@ -29,6 +29,7 @@ const Signup = () => {
 
   const signupSubmit = () => {
     let invalid = false;
+    if (pass.length < 6) return
     if (email === '') { setEmail_val('1px solid red'); invalid = true; };
     if (full === '') { setFull_val('1px solid red'); invalid = true; };
     if (user === '') { setUser_val('1px solid red'); invalid = true; };
@@ -41,7 +42,15 @@ const Signup = () => {
 
       axios.post('http://localhost:5000/signup', {email: email, fullname: full, username: user, password: pass})
       .then(res => {
-        console.log('res ', res)
+        if (res.data) {
+          localStorage.setItem('usertoken', res.data)
+        }
+
+        // if (res === 'User already exist') {
+        //   console.log(res)
+        // } else {
+        //   console.log(res)
+        // }
       })
     }
   }

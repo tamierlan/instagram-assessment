@@ -8,7 +8,7 @@ process.env.SECRET_KEY = 'secret'
 
 
 
-const toLogin = (email, password) => {
+const toLogin = (email, password, res) => {
   User.findOne({
     email: email
   })
@@ -24,13 +24,13 @@ const toLogin = (email, password) => {
         }
         let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 1440 })
         res.send(token)
-      } else { res.json({ error: 'User does not exist' })}
+      } else { res.json('User does not exist' )}
     } else {
-      res.json({ error: 'User does not exist' })
+      res.json( 'User does not exist' )
     }
   })
-  .catch(err => {
-    res.send('error: ' + err)
+  .catch(() => {
+    res.send('User does not exist')
   })
 };
 
@@ -55,7 +55,7 @@ users.post('/signup', (req, res) => {
         newUser.password = hash
         User.create(newUser)
         .then(() => {
-          toLogin(req.body.email, req.body.password)
+          toLogin(req.body.email, req.body.password, res)
         })
 
 
@@ -67,7 +67,7 @@ users.post('/signup', (req, res) => {
         // })
       })
     } else {
-      res.json({ error: 'User already exists' })
+      res.json('User already exist')
     }
   })
   .catch(err => {
