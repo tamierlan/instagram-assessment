@@ -104,24 +104,23 @@ a {
 
 .or {
   display: flex;
-  /* color: grey; */
 }
 .or div {
-  /* display: flex; */
   align-self: center;
-
   width: 50px;
   height: 1px;
   background: silver;
+  width: 40%;
 }
 .or h4 {
   margin: 17px;
   color: grey;
 }
-
-.or div {
-  width: 40%;
+.err h4 {
+  margin: 13px;
+  color: red;
 }
+
 
 .log-facebook {
   display: flex;
