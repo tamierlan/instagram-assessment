@@ -40,6 +40,9 @@ const Signup = () => {
       setPass_val('1px solid silver');
 
       axios.post('http://localhost:5000/signup', {email: email, fullname: full, username: user, password: pass})
+      .then(res => {
+        console.log('res ', res)
+      })
     }
   }
 
@@ -61,7 +64,7 @@ const Signup = () => {
         <Form.Control style={{border: pass_val}} onChange={(e)=>{setPassword(e)}} value={pass} type='password' placeholder='Password' /><br />
         <button onClick={signupSubmit} style={{background: butt}} className='signup-button'><h3>Sign up</h3></button>
 
-        <a href='#' className='aaa'>By signing up, you agree to our <strong> Terms , Data Policy</strong> and <strong>Cookies Policy</strong> .</a>
+        <a href='/#' className='aaa'>By signing up, you agree to our <strong> Terms , Data Policy</strong> and <strong>Cookies Policy</strong> .</a>
 
       </div>
 

@@ -30,11 +30,11 @@ const Footer = () => {
     <footer>
     {footerData.map((data, index) => {
       return (
-        <a href='#' key={index}>  {data}  </a>
+        <a href='/#' key={index}>  {data}  </a>
       )
     })}
     <div className='gap' />
-    <a href='#'>English @2021 Instagram from Facebook</a>
+    <a href='/#'>English @2021 Instagram from Facebook</a>
     </footer>
   )
 

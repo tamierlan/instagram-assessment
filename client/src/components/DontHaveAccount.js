@@ -6,7 +6,7 @@ const DontHaveAccount = (props) => {
 
   return (
     <div className='login dont'>
-      <a>{question}</a> <strong><Link to='/signup' to={`/${link}`}> {linkText}</Link></strong>
+      <a href='/#'>{question}</a><strong><Link to={`/${link}`}> {linkText}</Link></strong>
     </div>
   )
 };

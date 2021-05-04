@@ -8,13 +8,12 @@ const PhoneImg = () => {
     'https://www.instagram.com/static/images/homepage/screenshot3-2x.jpg/ff2c097a681e.jpg',
     'https://www.instagram.com/static/images/homepage/screenshot5-2x.jpg/5e04169b9308.jpg'
   ];
+  const [ image, setIgame ] = useState(images[0]);
 
-  const [ image, setIgame ] = useState(images[1]);
-  let count = 0;
-  let cleanUp;
 
   useEffect(() => {
-    cleanUp = setInterval(() => {
+    let count = 0;
+    const cleanUp = setInterval(() => {
       if (count === 4) {
         count = 0;
       } else {
@@ -23,7 +22,7 @@ const PhoneImg = () => {
       setIgame(images[count])
     }, 3000);
     return () => clearInterval(cleanUp)
-  }, [])
+  })
 
 
 

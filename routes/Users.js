@@ -4,41 +4,78 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/User')
-
-
 process.env.SECRET_KEY = 'secret'
 
+
+
+const toLogin = (email, password) => {
+  User.findOne({
+    email: email
+  })
+  .then(user => {
+    if(user) {
+      if(bcrypt.compareSync(password, user.password)) {
+        const payload = {
+          _id: user._id,
+          fullname: user.fullname,
+          username: user.username,
+          password: user.password,
+          created: user.created
+        }
+        let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 1440 })
+        res.send(token)
+      } else { res.json({ error: 'User does not exist' })}
+    } else {
+      res.json({ error: 'User does not exist' })
+    }
+  })
+  .catch(err => {
+    res.send('error: ' + err)
+  })
+};
+
+
+
+
+
 users.post('/signup', (req, res) => {
-  console.log('hey tommy this is req body', req.body)
-  // const userData = {
-  //   first_name: req.body.first_name,
-  //   last_name: req.body.last_name,
-  //   email: req.body.email,
-  //   password: req.body.password,
-  //   created: new Date()
-  // }
-  //
-  // User.findOne({ email: req.body.email })
-  // .then(user => {
-  //   if(!user) {
-  //     bcrypt.hash(req.body.password, 10, (err, hash) => {
-  //       userData.password = hash
-  //       User.create(userData)
-  //       .then(user => {
-  //         res.json({ status: user.email + ' registered!' })
-  //       })
-  //       .catch(err => {
-  //         res.send('error: ' + err)
-  //       })
-  //     })
-  //   } else {
-  //     res.json({ error: 'User already exists' })
-  //   }
-  // })
-  // .catch(err => {
-  //   res.send('error: ' + err)
-  // })
-})
+  // console.log('hey tommy this is req body', req.body)
+  const newUser = {
+    email: req.body.email,
+    fullname: req.body.fullname,
+    username: req.body.username,
+    password: req.body.password,
+    created: new Date()
+  };
+
+  User.findOne({ email: req.body.email })
+  .then(exist => {
+    if(!exist) {
+      bcrypt.hash(req.body.password, 10, (err, hash) => {
+        newUser.password = hash
+        User.create(newUser)
+        .then(() => {
+          toLogin(req.body.email, req.body.password)
+        })
+
+
+        // .then(user => {
+        //   res.json({ status: user.email + ' registered!' })
+        // })
+        // .catch(err => {
+        //   res.send('error: ' + err)
+        // })
+      })
+    } else {
+      res.json({ error: 'User already exists' })
+    }
+  })
+  .catch(err => {
+    res.send('error: ' + err)
+  })
+});
+
+
 
 
 
@@ -68,6 +105,16 @@ users.post('/login', (req, res) => {
     res.send('error: ' + err)
   })
 })
+
+
+
+
+
+
+
+
+
+
 
 users.get('/profile', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
