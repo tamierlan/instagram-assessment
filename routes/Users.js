@@ -36,10 +36,15 @@ const toLogin = (email, password, res) => {
 
 
 
+users.post('/login', (req, res) => {
+  toLogin(req.body.email, req.body.password, res);
+});
+
+
+
 
 
 users.post('/signup', (req, res) => {
-  // console.log('hey tommy this is req body', req.body)
   const newUser = {
     email: req.body.email,
     fullname: req.body.fullname,
@@ -57,14 +62,6 @@ users.post('/signup', (req, res) => {
         .then(() => {
           toLogin(req.body.email, req.body.password, res)
         })
-
-
-        // .then(user => {
-        //   res.json({ status: user.email + ' registered!' })
-        // })
-        // .catch(err => {
-        //   res.send('error: ' + err)
-        // })
       })
     } else {
       res.json('User already exist')
@@ -74,42 +71,6 @@ users.post('/signup', (req, res) => {
     res.send('error: ' + err)
   })
 });
-
-
-
-
-
-
-
-users.post('/login', (req, res) => {
-  User.findOne({
-    email: req.body.email
-  })
-  .then(user => {
-    if(user) {
-      if(bcrypt.compareSync(req.body.password, user.password)) {
-        const payload = {
-          _id: user._id,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email
-        }
-        let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 1440 })
-        res.send(token)
-      } else { res.json({ error: 'User does not exist' })}
-    } else {
-      res.json({ error: 'User does not exist' })
-    }
-  })
-  .catch(err => {
-    res.send('error: ' + err)
-  })
-})
-
-
-
-
-
 
 
 

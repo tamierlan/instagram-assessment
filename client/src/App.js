@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import UserAccount from './pages/UserAccount';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Logout from './pages/Logout';
 import Error from './pages/Error';
 import Footer from './components/Footer';
 
@@ -20,7 +19,6 @@ function App() {
           <Route path='/signup' component={Signup} />
           <Route path='/user-account' component={UserAccount} />
           <Route path='/login' component={Login} />
-          <Route path='/Logout' component={Logout} />
           <Route component={Error} />
         </Switch>
         <Footer />

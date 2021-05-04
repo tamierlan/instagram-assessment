@@ -39,7 +39,7 @@ const Signup = () => {
 
 
   const signupSubmit = () => {
-    const val = '1px solid red';
+    const val = '1px solid grey';
     const inval = '1px solid red'
     let invalid = false;
     if (pass.length < 6) return
@@ -87,11 +87,14 @@ const Signup = () => {
 
           <Err err={err} />
 
-          <input style={{border: email_val}} onChange={(e)=>{setEmail(e.target.value)}} value={email} type='text' placeholder='Mobile Number or email' /><br />
+          <input style={{border: email_val}} onChange={(e)=>{setEmail(e.target.value); setErr('OR')}} value={email} type='text' placeholder='Mobile Number or email' /><br />
           <input style={{border: full_val}} onChange={(e)=>{setFull(e.target.value)}} value={full} type='text' placeholder='Full Name' /><br />
           <input style={{border: user_val}} onChange={(e)=>{setUser(e.target.value)}} value={user} type='text' placeholder='Username' /><br />
           <Form.Control style={{border: pass_val}} onChange={(e)=>{setPassword(e)}} value={pass} type='password' placeholder='Password' /><br />
-          <button onClick={signupSubmit} style={{background: butt}} className='signup-button'><h3>Sign up</h3></button>
+          <button onClick={signupSubmit} style={{background: butt}} className='signup-button'>
+            <h3>Sign up</h3>
+            <div className="lds-dual-ring" />
+          </button>
 
           <a href='/#' className='aaa'>By signing up, you agree to our <strong> Terms , Data Policy</strong> and <strong>Cookies Policy</strong> .</a>
 
