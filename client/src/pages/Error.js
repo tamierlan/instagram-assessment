@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 const Error = () => {
   const [ goback, setGoback ] = useState(false);
@@ -11,7 +12,7 @@ const Error = () => {
         <h1>Error: Wrong page</h1>
         <button onClick={() => setGoback(true)}></button>
       </div>
-    )  
+    )
   }
 };
 
