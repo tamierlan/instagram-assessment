@@ -36,6 +36,15 @@ const UserAccount = () => {
     setLogged(false);
   }
 
+  const deleteUser = (id) => {
+    axios.delete('http://localhost:5000/delete/' + id)
+    .then(res => {
+      if (res.data === 'user deleted') {
+        logout()
+      }
+    });
+  };
+
   useEffect(() => {
     authorizing()
   }, []);
@@ -44,7 +53,7 @@ const UserAccount = () => {
     return <div />
   } else {
     if (logged) {
-      return <Account logout={logout} allUser={allUser} userData={userData} />
+      return <Account deleteUser={deleteUser} logout={logout} allUser={allUser} userData={userData} />
     } else {
       return <Redirect to='/' />;
     }

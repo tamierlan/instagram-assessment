@@ -3,8 +3,11 @@ import React from 'react';
 const Account = (props) => {
   const { userData, allUser } = props;
 
+  const deleting = (id) => {
+    props.deleteUser(id)
+  }
 
-  console.log(allUser)
+
   return (
     <div className='account'>
       <aside>
@@ -15,7 +18,7 @@ const Account = (props) => {
         <h1>{userData.fullname}</h1>
         <h1>{userData.email}</h1>
         <button onClick={props.logout}>Log Out</button>
-        <button onClick={psops.deleteUser}>Delete Account</button>
+        <button onClick={() => {deleting(userData._id)}}>Delete Account</button>
       </aside>
 
       <main>
