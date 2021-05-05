@@ -47,8 +47,8 @@ const Login = () => {
 
 
 
-  const callData = () => {
-    axios.post('http://localhost:5000/login', {email: login, password: pass})
+  const callData = async () => {
+    await axios.post('http://localhost:5000/login', {email: login, password: pass})
     .then(res => {
       if (res.data) {
         if (res.data === 'User does not exist') {
