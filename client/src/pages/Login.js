@@ -40,10 +40,14 @@ const Login = () => {
   };
 
 
-  const loginSubmit = () => {
-    if (pass.length < 6 || login.length === 0) {
-      return
-    }
+
+
+
+
+
+
+
+  const callData = () => {
     axios.post('http://localhost:5000/login', {email: login, password: pass})
     .then(res => {
       if (res.data) {
@@ -58,6 +62,14 @@ const Login = () => {
     .catch(error => {
        console.log(error);
     })
+  }
+
+
+  const loginSubmit = () => {
+    if (pass.length < 6 || login.length === 0) {
+      return
+    }
+    callData()
   };
 
 
