@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import Account from '../components/Account';
 import { Redirect } from 'react-router-dom';
 
 const UserAccount = () => {
   const [ logged, setLogged ] = useState(false);
+  const [ logHelp, setLoghelp ] = useState(false);
+
+  const getData = () => {
+
+  }
 
   const authorizing = () => {
     if (localStorage.usertoken) {
-      setLogged(true)
+      setLogged(true);
+      setLoghelp(true);
+      getData()
+    } else {
+      setLoghelp(true);
     }
   };
 
@@ -14,14 +24,14 @@ const UserAccount = () => {
     authorizing()
   }, []);
 
-  if (logged) {
-    return (
-      <div>
-        <h1>User Account</h1>
-      </div>
-    )
+  if (!logHelp) {
+    return <Account />
   } else {
-    return <Redirect to='/' />;
+    if (logged) {
+      return <Account />
+    } else {
+      return <Redirect to='/' />;
+    }
   }
 };
 
