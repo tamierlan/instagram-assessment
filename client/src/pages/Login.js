@@ -74,7 +74,6 @@ const Login = () => {
     // callData()
   };
 
-
   useEffect(() => {
     authorizing()
   }, []);
