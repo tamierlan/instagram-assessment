@@ -69,9 +69,7 @@ const Login = () => {
     if (pass.length < 6 || login.length === 0) {
       return
     }
-    axios.get('http://localhost:5000/users/')
-    .then(res => console.log('all user req ', res))
-    // callData()
+    callData()
   };
 
   useEffect(() => {
