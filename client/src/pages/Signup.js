@@ -67,6 +67,9 @@ const Signup = () => {
           setErr('Something went wrong try again later!');
         }
       })
+      .catch(error => {
+        console.log(error);
+      })
     }
   };
 
