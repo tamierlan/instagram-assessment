@@ -220,9 +220,32 @@ a {
 aside {
   width: 400px;
   background: silver;
-  height: 85vh;
+  height: 100vh;
+  border: 1px solid black;
+}
+.profile {
+  background-color: rgba(0,149,246,.3);
+  border: 1px solid black;
+  width: 100%;
+}
+main {
+  width: 70%;
+  height: 100vh;
 }
 
+.each-user {
+  display: flex;
+  padding: 10px;
+  box-shadow: 0px 1px 12px -4px #000000;
+  /* width: 100%; */
+  margin-bottom: 20px;
+}
+.info-users {
+  width: 33%;
+}
+.account button {
+  margin: 10px;
+}
 
 
 footer {

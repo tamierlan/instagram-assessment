@@ -8,6 +8,18 @@ process.env.SECRET_KEY = 'secret'
 
 
 
+
+users.get('/users', (req, res) => {
+  User.find()
+  .then(allUsers => res.json(allUsers))
+  .catch(() => {
+    res.send('Somthing wrong with server try again later!')
+  })
+});
+
+
+
+
 const toLogin = (email, password, res) => {
   User.findOne({
     email: email
@@ -44,7 +56,6 @@ users.post('/login', (req, res) => {
 
 
 
-
 users.post('/signup', (req, res) => {
   const newUser = {
     email: req.body.email,
@@ -72,41 +83,5 @@ users.post('/signup', (req, res) => {
     res.send('error: ' + err)
   })
 });
-
-
-
-
-
-
-users.get('/profile', (req, res) => {
-  var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-
-  User.findOne({
-    _id: decoded._id
-  })
-
-  .then(user => {
-    if (user) {
-      res.json(user)
-    } else {
-      res.send('User does not exist')
-    }
-  })
-  .catch(err => {
-    res.send('error: ' + err)
-  })
-})
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = users
