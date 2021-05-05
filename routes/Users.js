@@ -24,7 +24,40 @@ users.delete('/delete/:id', (req, res) => {
 })
 
 
-const toLogin = (email, password, res) => {
+// const toLogin = (email, password, res) => {
+//   User.findOne({
+//     email: email
+//   })
+//   .then(user => {
+//     if(user) {
+//       if(bcrypt.compareSync(password, user.password)) {
+//         const payload = {
+//           _id: user._id,
+//           email: user.email,
+//           fullname: user.fullname,
+//           username: user.username,
+//           password: user.password,
+//           created: user.created
+//         }
+//         let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 1440 })
+//         res.send(token)
+//       } else { res.json('User does not exist' )}
+//     } else {
+//       res.json( 'User does not exist' )
+//     }
+//   })
+//   .catch(() => {
+//     res.send('User does not exist')
+//   })
+// };
+
+
+
+users.post('/login', (req, res) => {
+  // toLogin(req.body.email, req.body.password, res);
+  const email = req.body.email;
+  const password = req.body.password;
+
   User.findOne({
     email: email
   })
@@ -49,12 +82,6 @@ const toLogin = (email, password, res) => {
   .catch(() => {
     res.send('User does not exist')
   })
-};
-
-
-
-users.post('/login', (req, res) => {
-  toLogin(req.body.email, req.body.password, res);
 });
 
 
@@ -76,7 +103,30 @@ users.post('/signup', (req, res) => {
         newUser.password = hash
         User.create(newUser)
         .then(() => {
-          toLogin(req.body.email, req.body.password, res)
+          User.findOne({
+            email: req.body.email
+          })
+          .then(user => {
+            if(user) {
+              if(bcrypt.compareSync(req.body.password, user.password)) {
+                const payload = {
+                  _id: user._id,
+                  email: user.email,
+                  fullname: user.fullname,
+                  username: user.username,
+                  password: user.password,
+                  created: user.created
+                }
+                let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 1440 })
+                res.send(token)
+              } else { res.json('User does not exist' )}
+            } else {
+              res.json( 'User does not exist' )
+            }
+          })
+          .catch(() => {
+            res.send('User does not exist')
+          })
         })
       })
     } else {
