@@ -17,6 +17,7 @@ const toLogin = (email, password, res) => {
       if(bcrypt.compareSync(password, user.password)) {
         const payload = {
           _id: user._id,
+          email: user.email,
           fullname: user.fullname,
           username: user.username,
           password: user.password,

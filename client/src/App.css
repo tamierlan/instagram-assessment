@@ -214,8 +214,15 @@ a {
 }
 
 
+.account {
+  display: flex;
+}
+aside {
+  width: 400px;
+  background: silver;
+  height: 85vh;
+}
 
- 
 
 
 footer {

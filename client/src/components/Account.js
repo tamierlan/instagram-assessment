@@ -1,8 +1,15 @@
 import React from 'react';
 
-const Account = () => {
+const Account = (props) => {
+  console.log(props.userData.email)
+  const { username, fullname, email } = props.userData;
   return (
-    <h1>user account!</h1>
+    <div className='account'>
+      <aside>
+
+      </aside>
+      <main>main</main>
+    </div>
   )
 };
 
